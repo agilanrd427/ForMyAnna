@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anna's Photo Album</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #3E2723;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    img {
+      max-width: 90%;
+      max-height: 400px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      background-color: white;
+      color: #3E2723;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .description {
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Anna's Photo Album</h1>
+  <img id="photo" src="https://via.placeholder.com/600x400?text=Photo+1" alt="Photo">
+  <p class="description" id="description">This is the first memory we captured together.</p>
+  
+  <button onclick="nextPhoto()">Next</button>
+
+  <script>
+    const photos = [
+      { src: "https://via.placeholder.com/600x400?text=Photo+1", desc: "This is the first memory we captured together." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+2", desc: "A day filled with laughter and good vibes." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+3", desc: "Your smile always brightens the moment." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+4", desc: "One of my favourite little snapshots of you." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+5", desc: "This memory is forever stuck in my heart." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+6", desc: "Simple times, but forever precious." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+7", desc: "This day? Unforgettable." },
+      { src: "https://via.placeholder.com/600x400?text=Photo+8", desc: "Thank you for letting me be part of your story." }
+    ];
+
+    let current = 0;
+
+    function nextPhoto() {
+      current++;
+      if (current >= photos.length) {
+        current = 0; // Restart album when reaching the end
+      }
+      document.getElementById('photo').src = photos[current].src;
+      document.getElementById('description').innerText = photos[current].desc;
+    }
+  </script>
+
+</body>
+</html>

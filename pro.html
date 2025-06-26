@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Message for Anna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+body {
+  background-color: #3E2723;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+    .teddy {
+      position: absolute;
+      width: 80px;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    .container {
+      background-image: url(download.jpg);
+      padding: 40px;
+      right: 50%;
+      left: 70%;
+      border-radius: 20px;
+      
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+    }
+    .next { background-color: white; color: #3E2723; }
+    .yes { background-color: #4CAF50; color: white; }
+    .no { background-color: #F44336; color: white; }
+    .time { background-color: #FFC107; color: white; }
+    .restart { background-color: white; color: #3E2723; }
+    button:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <img src="teddy.png" class="teddy" style="top: 10%; left: 20%; animation-delay: 0s;">
+  <img src="h.png" class="teddy" style="top: 10%; left: 30%; animation-delay: 1s;">
+  <img src="teddy.png" class="teddy" style="top: 10%; left: 40%; animation-delay: 2s;">
+  <img src="h.png" class="teddy" style="top: 10%; left: 50%; animation-delay: 3s;">
+    <img src="teddy.png" class="teddy" style="top: 10%; left: 60%; animation-delay: 4s;">
+      <img src="h.png" class="teddy" style="top: 10%; left: 70%; animation-delay: 5s;">
+        <img src="teddy.png" class="teddy" style="top: 30%; left: 70%; animation-delay: 6s;">
+          <img src="h.png" class="teddy" style="top: 50%; left: 70%; animation-delay: 7s;">
+          <img src="teddy.png" class="teddy" style="top: 75%; left: 70%; animation-delay: 7s;">
+          <img src="h.png" class="teddy" style="top: 75%; left: 60%; animation-delay: 6s;">
+          <img src="teddy.png" class="teddy" style="top: 75%; left: 50%; animation-delay: 5s;">
+          <img src="h.png" class="teddy" style="top: 75%; left: 40%; animation-delay: 4s;">
+          <img src="teddy.png" class="teddy" style="top: 75%; left: 30%; animation-delay: 3s;">
+          <img src="h.png" class="teddy" style="top: 75%; left: 20%; animation-delay: 2s;">
+          <img src="teddy.png" class="teddy" style="top: 50%; left: 20%; animation-delay: 1s;">
+          <img src="h.png" class="teddy" style="top: 30%; left: 20%; animation-delay: 0s;">
+        
+
+
+  <div class="container">
+    <p id="title"><H1>˚♡ My Dear Anna ♡˚</H1></p>
+   <p id="message"></p>
+    <div id="controls">
+      <button class="next" onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = [
+      "Hey, I've been meaning to tell you something for a while...",
+      "Hey, I've been meaning to tell you something for a while...",
+      "You're one of the most amazing people I've ever met.",
+      "Every moment talking to you feels special and effortless.",
+      "You make me smile in ways I can't fully explain.",
+      "I think I’ve really fallen for you, Anna.",
+      "So here’s my question... Would you like to give me a chance?"
+    ];
+
+    let page = 0;
+
+    function nextPage() {
+      page++;
+      const messageElement = document.getElementById('message');
+      const controls = document.getElementById('controls');
+
+      if (page < pages.length) {
+        messageElement.innerText = pages[page];
+      } else {
+        messageElement.innerText = "So, Anna... What’s your answer?";
+        controls.innerHTML = `
+          <button class="yes" onclick="alert('Yay! I\'m so happy, Anna! Sweet dreams. Good night, Anna. Sweet dreams, sleep well.')">Yes</button>
+          <button class="no" onclick="alert('Oh no! But it\'s okay, I’ll still be your Champ. Sweet dreams, Anna. Have a peaceful night.')">No</button>
+          <button class="time" onclick="alert('Take your time, Star. I’m not rushing you. Sweet dreams, Anna. Rest well tonight.')">I need time</button>
+          <br><br>
+          <button class="restart" onclick="restart()">Restart</button>
+        `;
+      }
+    }
+
+    function restart() {
+      page = 0;
+      document.getElementById('message').innerText = pages[0];
+      document.getElementById('controls').innerHTML = '<button class="next" onclick="nextPage()">Next</button>';
+    }
+  </script>
+</body>
+</html>

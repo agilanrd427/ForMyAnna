@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Story for Anna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url(bg.jpg);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+   
+    .teddy {
+      position: absolute;
+      width: 80px;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    
+    .container {
+      background-image: url(download.jpg);
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 540px;
+      font-size: large;
+      color: black;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+    }
+    .next { background-color: white; color: #3E2723; }
+    .option { background-color: #4CAF50; color: white; }
+    .option2 { background-color: #FFC107; color: white; }
+    button:hover { opacity: 0.8; }
+  </style>
+</head>
+<head>
+<style>
+
+ .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    .heart {
+      font-size: 40px;
+      color: white;
+      position: initial;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container1 {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+
+    }
+
+  </style>
+</head>
+<body>
+
+  
+  <body>
+  <div class="container">
+        <h1>˚♡ Future? ♡˚</h1>
+<div class="container1" id="loveContainer">
+    <img src="ad2.jpeg" class="photo" id="photo1">
+    <div class="heart" id="heart">❤️</div>
+    <img src="anna3.jpeg" class="photo" id="photo2">
+    <svg id="connectionLine" width="100%" height="100%">
+      <line x1="0" y1="0" x2="0" y2="0" stroke="white" stroke-width="3" stroke-dasharray="5,5" />
+    </svg>
+  </div>
+    <p>I don’t know where life will take us, but I’m grateful to know you and to keep sharing these small moments.</p>
+    <a href="page7.html"><button class="next">Next</button></a>
+  </div>
+</body>
+
+  <script>
+    const photo1 = document.getElementById('photo1');
+    const photo2 = document.getElementById('photo2');
+    const line = document.querySelector('line');
+    const heart = document.getElementById('heart');
+
+    function updateConnection() {
+      const rect1 = photo1.getBoundingClientRect();
+      const rect2 = photo2.getBoundingClientRect();
+
+      const x1 = rect1.left + rect1.width / 2;
+      const y1 = rect1.top + rect1.height / 2;
+      const x2 = rect2.left + rect2.width / 2;
+      const y2 = rect2.top + rect2.height / 2;
+
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
+
+      // Position heart in the middle of the line
+      heart.style.left = `${(x1 + x2) / 2}px`;
+      heart.style.top = `${(y1 + y2) / 2}px`;
+    }
+
+    window.addEventListener('resize', updateConnection);
+    window.addEventListener('load', updateConnection);
+  </script>
+
+
+
+
+</body>
+</html>
